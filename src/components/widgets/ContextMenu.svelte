@@ -14,20 +14,20 @@
 <div class="ctx-menu" style="top: {y}px; left: {x}px;">
 	{#if word !== ""}
 		<div>
-			Considering all hints, this row had:
+			Tenint en compte totes les pistes, aquesta file té:
 			<br /><br />
-			{pAns} possible answer{pAns > 1 ? "s" : ""}
+			{pAns} respost{pAns > 1 ? "es" : "a"} possible{pAns > 1 ? "s" : ""}
 			<br />
-			{pSols} valid guess{pSols > 1 ? "es" : ""}
+			{pSols} possible{pSols > 1 ? "s" : ""} intent{pSols > 1 ? "s" : ""}
 		</div>
 		<Definition {word} alternates={1} />
 	{:else}
 		<div>
-			Considering all hints, there {pAns > 1 ? "are" : "is"}:
+			Tenint en compte totes les pistes, hi ha:
 			<br /><br />
-			{pAns} possible answer{pAns > 1 ? "s" : ""}
+			{pAns} respost{pAns > 1 ? "es" : "a"} possible{pAns > 1 ? "s" : ""}
 			<br />
-			{pSols} valid guess{pSols > 1 ? "es" : ""}
+			{pSols} possible{pSols > 1 ? "s" : ""} intent{pSols > 1 ? "s" : ""}
 		</div>
 	{/if}
 </div>

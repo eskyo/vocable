@@ -5,53 +5,52 @@
 	export let visible: boolean;
 </script>
 
-<h3>how to play</h3>
-<div>Guess the <strong>WORDLE</strong> in {ROWS} tries.</div>
-<div>Each guess must be a valid {COLS} letter word. Hit the enter button to submit.</div>
+<h3>Com jugar</h3>
+<div>Endevina el <strong>VOCABLE</strong> en {ROWS} intents.</div>
+<div>Cada intent ha de ser una paraula válida de {COLS} lletres. Apreta el botó intro per confirmar.</div>
 <div>
-	After each guess, the color of the tiles will change to show how close your guess was to the
-	word.
+	Després de cada intent, el color de les caselles canviarà per mostrar quant t'has apropat a la paraula que has d'endevinar.
 </div>
 <div class:complete={visible} class="examples">
-	<div><strong>Examples</strong></div>
+	<div><strong>Exemples</strong></div>
 	<div class="row">
-		<Tile value="w" state="🟩" />
-		<Tile value="e" state="🔳" />
+		<Tile value="a" state="🟩" />
+		<Tile value="m" state="🔳" />
+		<Tile value="i" state="🔳" />
+		<Tile value="g" state="🔳" />
 		<Tile value="a" state="🔳" />
-		<Tile value="r" state="🔳" />
-		<Tile value="y" state="🔳" />
 	</div>
-	<div>The letter <strong>W</strong> is in the word and in the correct spot.</div>
+	<div>La lletra <strong>A</strong> està en la posició correcta de la paraula que has d'endevinar.</div>
 	<div class="row">
 		<Tile value="p" state="🔳" />
-		<Tile value="i" state="🟨" />
-		<Tile value="l" state="🔳" />
-		<Tile value="l" state="🔳" />
-		<Tile value="s" state="🔳" />
-	</div>
-	<div>The letter <strong>I</strong> is in the word but in the wrong spot.</div>
-	<div class="row">
-		<Tile value="v" state="🔳" />
+		<Tile value="l" state="🟨" />
+		<Tile value="u" state="🔳" />
+		<Tile value="j" state="🔳" />
 		<Tile value="a" state="🔳" />
-		<Tile value="g" state="🔳" />
-		<Tile value="u" state="⬛" />
-		<Tile value="e" state="🔳" />
 	</div>
-	<div>The letter <strong>U</strong> is not in the word in any spot.</div>
+	<div>La lletra <strong>L</strong> forma part de la paraula que has d'endevinar, però no es troba en la posició correcta.</div>
+	<div class="row">
+		<Tile value="b" state="🔳" />
+		<Tile value="a" state="🔳" />
+		<Tile value="r" state="🔳" />
+		<Tile value="c" state="⬛" />
+		<Tile value="a" state="🔳" />
+	</div>
+	<div>La lletra <strong>C</strong> no forma part de la paraula que has d'endevinar.</div>
 </div>
 <div>
-	This is a recreation of the original <a
+	Aquesta es una recreació del joc original <a
 		href="https://www.nytimes.com/games/wordle/"
 		target="_blank"
 		rel="noreferrer">Wordle</a
 	>
-	by Josh Wardle with additional modes and features, allowing you to play infinite wordles. Switch
-	to infinite mode to play an unlimited number of times.
+	creat per Josh Wardle. Canvia al Mode Infinit per a jugar sense límits.
 	<br /><br />
-	Open the settings menu to see some of the additional features.
+	Obre el menú de configuració per a veure més opcions i modes de joc.
 	<br />
-	Written with Svelte, in Typescript by
-	<a href="https://github.com/MikhaD" target="_blank" rel="noreferrer">MikhaD</a>.
+	Programat amb Svelte, en Typescript per
+	<a href="https://github.com/MikhaD" target="_blank" rel="noreferrer">MikhaD</a> i adaptat al català per
+	<a href="https://github.com/eskyo" target="_blank" rel="noreferrer">eskyo</a>.
 </div>
 
 <style lang="scss">

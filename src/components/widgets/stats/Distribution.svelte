@@ -10,7 +10,7 @@
 	}, 1);
 </script>
 
-<h3>guess distribution</h3>
+<h3>Distribució d'intents per vocable</h3>
 <div class="container">
 	{#each Object.entries(distribution) as guess, i (guess[0])}
 		{@const g = Number(guess[0])}

@@ -1,15 +1,29 @@
 import seedRandom from "seedrandom";
 import { GameMode, ms } from "./enums";
 import wordList from "./words_5";
+import wordList2 from "./words_5_original";
 
 export const ROWS = 6;
 export const COLS = 5;
+export const test1 = true;
 
 export const words = {
-	...wordList,
-	contains: (word: string) => {
-		return wordList.words.includes(word) || wordList.valid.includes(word);
-	},
+	
+	
+		...wordList,
+	    contains: (word: string) => {
+	 	return wordList.words.includes(word) || wordList.valid.includes(word);
+		}
+	
+		/*else{
+		...wordList2,
+	    contains: (word: string) => {
+	 	return wordList2.words.includes(word) || wordList2.valid.includes(word);
+		};*/
+	//...wordList,
+	//contains: (word: string) => {
+	//	return wordList.words.includes(word) || wordList.valid.includes(word);
+	//},
 };
 
 class Tile {
@@ -130,7 +144,7 @@ export function contractNum(n: number) {
 	}
 }
 
-export const keys = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
+export const keys = ["qwertyuiop", "asdfghjklç", "zxcvbnm"];
 
 /**
  * Return a deterministic number based on the given mode and current or given time.
@@ -157,7 +171,7 @@ export const modeData: ModeData = {
 	default: GameMode.daily,
 	modes: [
 		{
-			name: "Daily",
+			name: "Diari",
 			unit: ms.DAY,
 			start: 1642370400000,	// 17/01/2022 UTC+2
 			seed: newSeed(GameMode.daily),
@@ -166,7 +180,7 @@ export const modeData: ModeData = {
 			useTimeZone: true,
 		},
 		{
-			name: "Hourly",
+			name: "Horari",
 			unit: ms.HOUR,
 			start: 1642528800000,	// 18/01/2022 8:00pm UTC+2
 			seed: newSeed(GameMode.hourly),
@@ -175,7 +189,7 @@ export const modeData: ModeData = {
 			streak: true,
 		},
 		{
-			name: "Infinite",
+			name: "Infinit",
 			unit: ms.SECOND,
 			start: 1642428600000,	// 17/01/2022 4:10:00pm UTC+2
 			seed: newSeed(GameMode.infinite),
@@ -212,12 +226,12 @@ export function seededRandomInt(min: number, max: number, seed: number) {
 export const DELAY_INCREMENT = 200;
 
 export const PRAISE = [
-	"Genius",
-	"Magnificent",
-	"Impressive",
-	"Splendid",
-	"Great",
-	"Phew",
+	"Genial",
+	"Magnífic",
+	"Impressionant",
+	"Esplèndid",
+	"Molt bé",
+	"Ufff",
 ];
 
 abstract class Storable {

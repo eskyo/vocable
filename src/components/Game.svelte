@@ -57,7 +57,7 @@
 
 	function submitWord() {
 		if (game.latestWord.length !== COLS) {
-			toaster.pop("Not enough letters");
+			toaster.pop("La paraula és massa curta");
 			board.shake(game.guesses);
 		} else if (words.contains(game.latestWord)) {
 			if (game.guesses > 0) {
@@ -65,12 +65,12 @@
 				if ($settings.hard[$mode]) {
 					if (hm.type === "🟩") {
 						toaster.pop(
-							`${contractNum(hm.pos + 1)} letter must be ${hm.char.toUpperCase()}`
+							`${contractNum(hm.pos + 1)} la lletra ha de ser ${hm.char.toUpperCase()}`
 						);
 						board.shake(game.guesses);
 						return;
 					} else if (hm.type === "🟨") {
-						toaster.pop(`Guess must contain ${hm.char.toUpperCase()}`);
+						toaster.pop(`La resposta ha de contenir ${hm.char.toUpperCase()}`);
 						board.shake(game.guesses);
 						return;
 					}
@@ -85,7 +85,7 @@
 			if (game.lastWord === word) win();
 			else if (game.guesses === ROWS) lose();
 		} else {
-			toaster.pop("Not in word list");
+			toaster.pop("No es troba a la llista de paraules");
 			board.shake(game.guesses);
 		}
 	}
@@ -204,7 +204,7 @@
 
 <Modal bind:visible={showStats}>
 	{#if modeData.modes[$mode].historical}
-		<h2 class="historical">Statistics not available for historical games</h2>
+		<h2 class="historical">Estadístiques no disponibles en partides desades</h2>
 	{:else}
 		<Statistics data={stats} />
 		<Distribution distribution={stats.guesses} {game} />
@@ -229,7 +229,7 @@
 			on:click={concede}
 			on:keydown={concede}
 		>
-			give up
+			abandonar
 		</div>
 	{/if}
 </Modal>
@@ -237,7 +237,7 @@
 <Modal fullscreen={true} bind:visible={showSettings}>
 	<Settings state={game} on:historical={() => (showHistorical = true)} />
 	{#if game.active}
-		<div class="button concede" on:click={concede} on:keydown={concede}>give up</div>
+		<div class="button concede" on:click={concede} on:keydown={concede}>abandonar</div>
 	{/if}
 	<Tips change={showSettings} />
 
@@ -255,7 +255,7 @@
 					toaster.pop("localStorage cleared");
 				}}
 			>
-				{modeData.modes[$mode].name} word #{game.wordNumber}
+				{modeData.modes[$mode].name} #{game.wordNumber}
 			</div>
 		</div>
 	</svelte:fragment>

@@ -30,40 +30,40 @@
 <!-- <svelte:body class:light={!$settings.dark} class:colorblind={$settings.colorblind} /> -->
 <div class="outer">
 	<div class="settings-top">
-		<h3>settings</h3>
+		<h3>Opcions</h3>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div
 			on:click={() => {
 				if (!state.validHard) {
-					toaster.pop("Game has already violated hard mode");
+					toaster.pop("No es compleixen les condiciones per activar el Mode Expert");
 				}
 			}}
 		>
 			<Setting type="switch" bind:value={$settings.hard[$mode]} disabled={!state.validHard}>
-				<svelte:fragment slot="title">Hard Mode</svelte:fragment>
+				<svelte:fragment slot="title">Mode Expert</svelte:fragment>
 				<svelte:fragment slot="desc">
-					Any revealed hints must be used in subsequent guesses
+					Les lletres revelades s'han d'utilitzar en els intents posteriors
 				</svelte:fragment>
 			</Setting>
 		</div>
 		<Setting type="switch" bind:value={$settings.dark}>
-			<svelte:fragment slot="title">Dark Theme</svelte:fragment>
+			<svelte:fragment slot="title">Fons negre</svelte:fragment>
 		</Setting>
 		<Setting type="switch" bind:value={$settings.colorblind}>
-			<svelte:fragment slot="title">Color Blind Mode</svelte:fragment>
-			<svelte:fragment slot="desc">High contrast colors</svelte:fragment>
+			<svelte:fragment slot="title">Ajuda daltonisme</svelte:fragment>
+			<svelte:fragment slot="desc">Colors d'alt contrast</svelte:fragment>
 		</Setting>
 		<Setting type="dropdown" bind:value={$mode} options={modeData.modes.map((e) => e.name)}>
-			<svelte:fragment slot="title">Game Mode</svelte:fragment>
+			<svelte:fragment slot="title">Mode de joc</svelte:fragment>
 			<svelte:fragment slot="desc">
-				The game mode determines how often the word refreshes
+				El mode de joc determina cada quant s'actualitza la paraula.
 			</svelte:fragment>
 		</Setting>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<Setting type="custom" bind:value={$mode}>
-			<svelte:fragment slot="title">Play Historical Game</svelte:fragment>
+			<svelte:fragment slot="title">Partida desada</svelte:fragment>
 			<svelte:fragment slot="desc">
-				Play a previous word by pasting in a link or setting the date number
+				Juga a una partida anterior introduïnt un enllaç o posant la data.
 			</svelte:fragment>
 			<svelte:fragment slot="custom">
 				<svg
@@ -79,11 +79,11 @@
 			</svelte:fragment>
 		</Setting>
 		<div class="links">
-			<a href="https://github.com/MikhaD/wordle" target="_blank" rel="noreferrer">
-				Leave a ⭐
+			<a href="https://github.com/eskyo/vocable" target="_blank" rel="noreferrer">
+				Envia una ⭐
 			</a>
-			<a href="https://github.com/MikhaD/wordle/issues" target="_blank" rel="noreferrer">
-				Report a Bug
+			<a href="https://github.com/eskyo/vocable/issues" target="_blank" rel="noreferrer">
+				Reporta un problema
 			</a>
 		</div>
 	</div>

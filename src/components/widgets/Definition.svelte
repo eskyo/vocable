@@ -8,8 +8,13 @@
 	export let alternates = 9;
 
 	async function getWordData(word: string): Promise<DictionaryEntry> {
+
+		//Funció no disponible en català. 
+		throw new Error('API Dictionary no disponible')   //esborrar aquesta linia per fer consultes API
+		//////////////////////////////////////////////////////////////////////////
+
 		if (!cache.has(word)) {
-			const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, {
+			 const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, {
 				mode: "cors",
 			});
 			if (data.ok) {
@@ -22,26 +27,42 @@
 	}
 </script>
 
-<div class="def">
+<div class="def"> 
 	{#await getWordData(word)}
-		<h4>Fetching definition...</h4>
+		<h4>Buscant definició...</h4>
 	{:then data}
 		<h2>{word}</h2>
 		<em>{data.meanings[0].partOfSpeech}</em>
 		<ol>
 			{#if word !== data.word}
-				<li>variant of {data.word}.</li>
+				<li>variant de {data.word}.</li>
 			{/if}
 			{#each data.meanings[0].definitions.slice(0, 1 + alternates - (word !== data.word ? 1 : 0)) as def}
 				<li>{def.definition}</li>
 			{/each}
 		</ol>
 	{:catch}
-		<div>Your word was <strong>{word}</strong>. (failed to fetch definition)</div>
+		<h4>La paraula era: </h4>
+
+		<div class="linkIEC">
+			<a href="https://dlc.iec.cat/Results?DecEntradaText={word}#Definition" target="_blank" rel="noreferrer" style="text-decoration:none;">	
+				{word}
+			</a>
+		</div>
+
+		<div>(Toca sobre la paraula per veure la definició)</div>
+
 	{/await}
 </div>
 
 <style>
+	.linkIEC {
+		font-size: var(--fs-large);
+		color: var(--fg-primary);
+		display: flex;
+		justify-content: space-between;
+		text-transform: uppercase;
+	}
 	h2 {
 		display: inline-block;
 		margin-right: 1rem;

@@ -8,10 +8,10 @@
 	let stats: [string, string | number][];
 	$: {
 		stats = [
-			["Played", data.played],
-			["Win %", Math.round(((data.played - data.guesses.fail) / data.played) * 100) || 0],
+			["Partides", data.played],
+			["Èxits (%)", Math.round(((data.played - data.guesses.fail) / data.played) * 100) || 0],
 			[
-				"Average Guesses",
+				"Mitjana d'intents",
 				(
 					Object.entries(data.guesses).reduce((a, b) => {
 						if (!isNaN(+b[0])) {
@@ -23,16 +23,16 @@
 			],
 		];
 		if (data.guesses.fail > 0) {
-			stats.push(["Lost", data.guesses.fail]);
+			stats.push(["No endevinats", data.guesses.fail]);
 		}
 		if (data.hasStreak) {
-			stats.push(["Current Streak", data.streak]);
-			stats.push(["Max Streak", data.maxStreak]);
+			stats.push(["Ratxa actual", data.streak]);
+			stats.push(["Ratxa màxima", data.maxStreak]);
 		}
 	}
 </script>
 
-<h3>Statistics ({modeData.modes[$mode].name})</h3>
+<h3>Estadístiques (Mode: {modeData.modes[$mode].name})</h3>
 <div>
 	{#each stats as stat}
 		<Stat name={stat[0]} stat={stat[1]} />
