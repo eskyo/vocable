@@ -1,5 +1,5 @@
 {
-  "name": "vocable",
+  "name": "VOCABLE",
   "description": "Una versió en català del popular joc Wordle.",
   "version": "1.5.2",
   "type": "module",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eskyo/wordle.git"
+    "url": "git+https://github.com/eskyo/vocable.git"
   },
   "keywords": [],
   "author": "MikhaD/eskyo",
   "bugs": {
-    "url": "https://github.com/eskyo/wordle/issues"
+    "url": "https://github.com/eskyo/vocable/issues"
   },
-  "homepage": "https://github.com/eskyo/wordle#readme",
+  "homepage": "https://github.com/eskyo/vocable#readme",
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "@tsconfig/svelte": "^3.0.0",

@@ -4,7 +4,7 @@ import { version } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/wordle/",
+  base: "/vocable/",
   plugins: [svelte({
     preprocess: vitePreprocess()
   })],
